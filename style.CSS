@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: url("VALENTINE.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  color: white;
+  position: relative;
+  padding-bottom: 60px; /* space for footer */
+}
+
+/* Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 0;
+}
+
+/* MAIN CONTAINER */
+.container {
+  position: relative;
+  text-align: center;
+  z-index: 3;
+  width: 100%;
+  padding: 20px;
+}
+
+/* HEADINGS */
+h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 15px 35px;
+  border-radius: 30px;
+  border: none;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-8px);
+}
+
+.yes {
+  background: white;
+  color: #ff4d6d;
+}
+
+.no {
+  background: #ff4d6d;
+  color: white;
+  position: relative;
+}
+
+/* FALLING EFFECT */
+.falling button {
+  animation: fall 1.5s ease forwards;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* FLOATING HEARTS */
+.hearts span {
+  position: absolute;
+  bottom: -50px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+/* LOVE LETTER */
+.love-letter {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  transition: opacity 0.6s ease;
+}
+
+.love-letter.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.letter-box {
+  background: white;
+  color: #ff4d6d;
+  padding: 25px;
+  border-radius: 20px;
+  width: min(90%, 420px);
+  text-align: center;
+}
+
+/* CHOICES PAGE */
+.choice-text {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 25px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.choices button {
+  background: white;
+  color: #ff4d6d;
+  width: min(90%, 360px);
+}
+
+/* FLASH MEMORY */
+.flash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.flash.active {
+  animation: flash 0.6s ease;
+}
+/* FIREWORKS CANVAS */
+#fireworks {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+#timestamp {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #666;
+}
+ 
+/* CONFETTI */
+@keyframes confettiFall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% { opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.4);
+  z-index: 5;
+}
+
+/* SMALL DEVICES */
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  button {
+    width: 85%;
+    max-width: 300px;
+  }
+}

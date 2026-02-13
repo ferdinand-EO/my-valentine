@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Love 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<audio id="selectSound">
+  <source src="select.mp3" type="audio/mpeg">
+</audio>
+
+<div class="flash"></div>
+
+<canvas id="fireworks"></canvas>
+
+<div class="container" id="memory">
+  <h1>My Love 💖</h1>
+   <p id="timestamp"></p>
+  <p class="choice-text">
+    Please pick anything of your choice you want us to do today 💕
+  </p>
+
+  <div class="choices">
+    <button onclick="pick(this, 'Paint and Sip Date 🎨🍷')">🎨 Paint & Sip Date</button>
+    <button onclick="pick(this, 'Ice Cream Date 🍦')">🍦 Ice Cream Date</button>
+    <button onclick="pick(this, 'Shopping 🛍️')">🛍️ Shopping</button>
+    <button onclick="pick(this, 'Beach Picnic 🏖️')">🏖️ Beach Picnic</button>
+    <button onclick="pick(this, 'Romantic Date 🌹')">🌹 Romantic Date</button>
+    <button onclick="pick(this, 'Just Be With You ❤️')">❤️ Just Be With You</button>
+  </div>
+</div>
+
+<footer class="footer">
+  © 2026 by GIGDEV
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="yes.js"></script>
+</body>
+</html>
